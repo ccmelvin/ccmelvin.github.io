@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.889b27bc.chunk.css",
+    "main.js": "/static/js/main.7b121113.chunk.js",
+    "main.js.map": "/static/js/main.7b121113.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ca057f3d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ca057f3d.js.map",
+    "static/js/2.36ed4934.chunk.js": "/static/js/2.36ed4934.chunk.js",
+    "static/js/2.36ed4934.chunk.js.map": "/static/js/2.36ed4934.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.889b27bc.chunk.css.map": "/static/css/main.889b27bc.chunk.css.map",
+    "static/js/2.36ed4934.chunk.js.LICENSE.txt": "/static/js/2.36ed4934.chunk.js.LICENSE.txt",
+    "static/media/ayrton-senna-and-drivers.b280bdb2.jpg": "/static/media/ayrton-senna-and-drivers.b280bdb2.jpg",
+    "static/media/ayrton-senna-car-brazil-flag.2a10368c.jpg": "/static/media/ayrton-senna-car-brazil-flag.2a10368c.jpg",
+    "static/media/ayrton-senna-car-track.61df0ff1.jpg": "/static/media/ayrton-senna-car-track.61df0ff1.jpg",
+    "static/media/ayrton-senna-helmet-face.2eed4bbf.jpg": "/static/media/ayrton-senna-helmet-face.2eed4bbf.jpg",
+    "static/media/ayrton-senna-photo-profile.8a5ac3f8.jpg": "/static/media/ayrton-senna-photo-profile.8a5ac3f8.jpg",
+    "static/media/brazil-flag-helmet.dab7ade7.jpg": "/static/media/brazil-flag-helmet.dab7ade7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ca057f3d.js",
+    "static/js/2.36ed4934.chunk.js",
+    "static/css/main.889b27bc.chunk.css",
+    "static/js/main.7b121113.chunk.js"
+  ]
+}

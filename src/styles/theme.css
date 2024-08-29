@@ -1,0 +1,18 @@
+/* src/styles/theme.css */
+
+body.light-theme {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #1a73e8;
+    --secondary-color: #fbbc05;
+  }
+  
+  body.dark-theme {
+    --background-color: #181818;
+    --text-color: #ffffff;
+    --primary-color: #8ab4f8;
+    --secondary-color: #fbbc05;
+  }
+  
+  /* Additional theme-specific styles can go here */
+  

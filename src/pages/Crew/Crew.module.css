@@ -1,0 +1,66 @@
+.crewContainer {
+    width: 80%;
+    max-width: 60rem;
+    margin: 10rem auto;
+    padding: 2rem;
+    text-align: center;
+    background: var(--accent-color);
+}
+
+.crewHeading {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .crewSection {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .crewSection:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  
+  .crewImage {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .crewImage:hover {
+    transform: scale(1.05);
+  }
+  
+  .crewTextWrapper {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .crewSubheading {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+    color: #333333;
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 0.3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Dancing Script", cursive;
+  text-align: left;
+  }
+  
+  .crewParagraph {
+    max-width: 60ch;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  

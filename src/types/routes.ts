@@ -4,6 +4,7 @@ import AboutMe from '../pages/AboutMe/AboutMe';
 import LiveStream from '../pages/LiveStream/LiveStream';
 import Gallery from '../pages/Gallery/Gallery';
 import ContactForm from '../pages/ContactForm/ContactForm';
+import Crew from '../pages/Crew/Crew';
 
 export interface RouteConfig {
   path: string;
@@ -39,6 +40,11 @@ export const routes: Routes = {
     path: '/contact',
     component: ContactForm,
   },
+  crew: {
+    path: '/crew',
+    component: Crew,
+  },
+
   // Example of a future private route
   // dashboard: {
   //   path: '/dashboard',

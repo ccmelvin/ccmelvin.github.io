@@ -69,6 +69,14 @@ const Navbar: React.FC = () => {
             Contact
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/crew"
+            className={({ isActive }) => (isActive ? styles.active : "")}
+          >
+            Crew
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

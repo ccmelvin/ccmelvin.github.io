@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  background-color: transparent; /* Start transparent */
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+.title {
+  color: rgb(232, 232, 230);
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.scrolled {
+  background-color: #041B32;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0.8em;
+  gap: 1.8em;
+
+}
+.navLinks li a {
+  color: rgb(238, 238, 239);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+.navLinks li a:hover {
+  color: #041B32;
+}
+
+.active {
+  color: #cbced1; /* Color for active link */
+}
+
+/* Change the font color when navbar is scrolled */
+.scrolled .navLinks li a {
+  color: rgb(234, 234, 231);
+}
+
+.scrolled .navLinks li a:hover,
+.scrolled .active {
+  color: lightblue;
+}

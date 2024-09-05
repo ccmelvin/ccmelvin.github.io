@@ -1,19 +1,22 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
-// import ResponsiveComponent from '../../components/ResponsiveComponent/ResponsiveComponent'
+import React from 'react';
+import Carousel from '../Carousel/Carousel';
+import styles from './Home.module.css';
 
-import styles from './Home.module.css'
-import ExitWarningModal from '../../components/ExitWarningModal/ExitWarningModal'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import AboutMe from '../AboutMe/AboutMe';
 
 const Home: React.FC = () => {
   return (
-    <div className={styles.home}>
-      <p>Home</p>
-      <Header />
-      {/* <ResponsiveComponent /> */}
-      <ExitWarningModal />
+    <div className={styles.homeWrapper}>
+      <div className={styles.home}>
+        <Carousel />
+        <div className={styles.content}>
+          <AboutMe />
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

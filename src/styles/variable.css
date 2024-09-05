@@ -3,9 +3,11 @@
 :root {
     --background-color: #f0f0f0;
     --text-color: #333333;
+    --secondary-text-color: #848484;
     --primary-color: #1a73e8;
-    --secondary-color: #fbbc05;
-    --font-family: 'Arial', sans-serif;
+    --secondary-color: #041B32;
+    --font-family:  font-family: "Lato", sans-serif;
+    --accent-color: #EAEAEA;
     
     --font-size-small: 0.875rem;
     --font-size-medium: 1rem;

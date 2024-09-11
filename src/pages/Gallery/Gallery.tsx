@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
+import GalleryCard from '../../components/GalleryCard/GalleryCard';
+import { initialGallery } from '../../types/gallery';
 
 const Gallery: React.FC = () => {
-  return (
-    <div>
-      <p>Gallery</p>
-    </div>
-  )
-}
+  const [galleryItems, setGalleryItems] = useState(initialGallery);
 
-export default Gallery
+  const handleLike = (id: string) => {
+    setGalleryItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, likes: item.likes + 1 } : item
+      )
+    );
+  };
+
+  return <GalleryCard items={galleryItems} onLike={handleLike} />;
+};
+
+export default Gallery;

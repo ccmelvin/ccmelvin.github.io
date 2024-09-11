@@ -1,62 +1,61 @@
-import React from 'react';
-import styles from './Crew.module.css';
-
-import victoria from '../../assets/images/air_plane_01.jpg';
-import gustavinho from '../../assets/images/gustavo_son_pilot_01.jpg';
-import cassia from '../../assets/images/cassia_03.jpg';
-import colonMelvin from '../../assets/images/colon_melvin.jpg';
+import React, { useState } from "react";
+import styles from "./Crew.module.css";
+import { crewContent } from "../../types/crewContent";
 
 const Crew: React.FC = () => {
+  const [activeImage, setActiveImage] = useState(
+    crewContent.reduce((acc, member) => {
+      acc[member.name] = member.image[0]; // Default to the first image for each crew member
+      return acc;
+    }, {} as Record<string, string>)
+  );
+
+  const handleImageClick = (crewMember: string, image: string) => {
+    setActiveImage((prev) => ({ ...prev, [crewMember]: image }));
+  };
+
   return (
     <div className={styles.crewContainer}>
-      <h2 className={styles.crewHeading}>Mastering Composition in Cinematic Photography</h2>
-      <section className={styles.crewSection}>
-        <img src={victoria} alt="Instant Photo" className={styles.crewImage} />
-        <div className={styles.crewTextWrapper}>
-          <h3 className={styles.crewSubheading}>
-            Victoria Cavalheiro
-          </h3>
-          <p className={styles.crewParagraph}>
-            Learn how to take stunning photos, grow your photography business, and create a life you love.
-            Get started with our free comprehensive guides and inspiration for your photography business. 
-            Whether you're a beginner or a seasoned pro, we have something for everyone.
-          </p>
-        </div>
-      </section>
-      <section className={styles.crewSection}>
-        <img src={gustavinho} alt="Gustavo Son Student Pilot" className={styles.crewImage} />
-        <div className={styles.crewTextWrapper}>
-          <h3 className={styles.crewSubheading}>Gustavo Uliana</h3>
-          <p className={styles.crewParagraph}>
-            The joy of cinematic photography, a medium that merges the visual storytelling elements of film and the singular,
-            crystallized moments captured in still photography. To experience life through this lens is like dancing between
-            the realms of fantasy and reality. Each frame is not merely a snapshot, but a tale whispered through light, shadow,
-            and the artful manipulation of time. It's a poetry of pixels and film grain, if you will.
-          </p>
-        </div>
-      </section>
-      <section className={styles.crewSection}>
-        <img src={cassia} alt="Photo Editing" className={styles.crewImage} />
-        <div className={styles.crewTextWrapper}>
-          <h3 className={styles.crewSubheading}>Cassia Melvin</h3>
-          <p className={styles.crewParagraph}>
-            Welcome, I'm Finn — your guide through a realm where photography transforms into cinematic art. 
-            As an award-winning visionary, I don't just capture moments; I turn them into emotional experiences. 
-            Dive into my portfolio, and you'll find more than images—you'll discover stories waiting to sweep you off your feet.
-          </p>
-        </div>
-      </section>
-      <section className={styles.crewSection}>
-        <img src={colonMelvin} alt="Photo Editing" className={styles.crewImage} />
-        <div className={styles.crewTextWrapper}>
-          <h3 className={styles.crewSubheading}>Colon Melvin</h3>
-          <p className={styles.crewParagraph}>
-            Welcome, I'm Finn — your guide through a realm where photography transforms into cinematic art. 
-            As an award-winning visionary, I don't just capture moments; I turn them into emotional experiences. 
-            Dive into my portfolio, and you'll find more than images—you'll discover stories waiting to sweep you off your feet.
-          </p>
-        </div>
-      </section>
+      <h2 className={styles.crewHeading}>
+        Meet the Team: Stories Behind the Lens
+      </h2>
+      <p className={styles.crewParagraphTitle}>
+        Our team brings together a blend of diverse experiences, creative
+        passions, and a shared love for storytelling, both on the ground and in
+        the skies.
+      </p>
+      {crewContent.map((member) => (
+        <section key={member.name} className={styles.crewSection}>
+          <div className={styles.crewImageWrapper}>
+            {/* Display the active image for the current crew member */}
+            <img
+              src={activeImage[member.name]}
+              alt={member.alt}
+              className={styles.crewImage}
+            />
+            {/* Display the thumbnails for the current crew member */}
+            <div className={styles.thumbnailWrapper}>
+              {member.image.map((imgSrc, index) => (
+                <img
+                  key={index}
+                  src={imgSrc}
+                  alt={`${member.name} thumbnail ${index}`}
+                  className={styles.thumbnail}
+                  onClick={() => handleImageClick(member.name, imgSrc)}
+                />
+              ))}
+            </div>
+          </div>
+          <div className={styles.crewTextWrapper}>
+            <h3 className={styles.crewSubheading}>{member.name}</h3>
+            {member.paragraphs.map((paragraph, index) => (
+              <p key={index} className={styles.crewParagraph}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 };

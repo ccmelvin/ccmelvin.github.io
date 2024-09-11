@@ -3,9 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Carousel.module.css";
-import us_navy from "../../assets/images/us_navy_01.jpg";
-import riodejaneiro_helicopter from "../../assets/images/riodejaneiro_helicopter.jpg";
-import american_airlines_01 from "../../assets/images/american_airlines_01.jpg";
+import us_navy from "../../assets/images/us_navy_03.png";
+import riodejaneiro_helicopter from "../../assets/images/riodejaneiro_sunset_surgarloaf_01.png";
+import american_airlines_01 from "../../assets/images/american_airlines_02.png";
 
 interface ArrowProps {
   className?: string;
@@ -74,18 +74,19 @@ const Carousel: React.FC = () => {
 
   return (
     <div className={`slider-container ${styles.carousel}`}>
-      <Slider {...settings}>
-        {photos.map((photo, index) => (
-          <div key={index} className={styles.slide}>
-            <div className={styles.overlay}>
-              <div className={styles.description}>{photo.description}</div>
-              <div className={styles.author}>Photo by: {photo.author}</div>
-            </div>
-            <img src={photo.src} alt={photo.alt} className={styles.image} />
+    <Slider {...settings}>
+      {photos.map((photo, index) => (
+        <div key={index} className={styles.carouselSlide}>
+          <div className={styles.carouselOverlay}>
+            <div className={styles.carouselDescription}>{photo.description}</div>
+            <div className={styles.carouselAuthor}>Photo by: {photo.author}</div>
           </div>
-        ))}
-      </Slider>
-    </div>
+          <img src={photo.src} alt={photo.alt} className={styles.carouselImage} />
+        </div>
+      ))}
+    </Slider>
+  </div>
+  
   );
 };
 

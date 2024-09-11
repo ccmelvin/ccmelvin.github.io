@@ -1,0 +1,187 @@
+/* Main container adjustments */
+.contactFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+}
+
+.contactFormImage {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+/* Layout for the form and contact details */
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 75%;
+  max-width: 1200px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  z-index: 10;
+}
+
+/* Left Column Styling (Contact Info) */
+.leftColumn {
+  margin: 0;
+  padding: 50px;
+  flex: 2;
+  background-image: url('../../assets/images/blue_background.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-family: inherit;
+}
+.leftColumnHeader {
+  color: rgb(232, 232, 230);
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactFormLogo {
+  margin: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+
+}
+
+.leftColumnTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.leftColumn h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.leftColumn h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #f0f0f0;
+}
+
+.leftColumn p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.leftColumn p:last-of-type {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* Right Column Styling (Form) */
+.rightColumn {
+  flex: 2;
+  padding: 60px;
+  background-color: #f9f9f9; /* Light background */
+  border-radius: 8px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Input fields styling */
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: #d32f2f;
+  outline: none;
+}
+
+.contactForm textarea {
+  resize: none;
+  height: 150px;
+  font-family: inherit;
+}
+
+/* Submit button styling */
+.submitButton {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 15px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color);
+}
+
+/* Success message styling */
+.successMessage {
+  font-size: 1.2rem;
+  color: green;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .leftColumn {
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rightColumn {
+    padding: 40px;
+  }
+}

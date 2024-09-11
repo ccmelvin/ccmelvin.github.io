@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   padding: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  z-index: 1000;
   background-color: transparent; /* Start transparent */
+  z-index: 1000;
 }
 .logoContainer {
   display: flex;
@@ -54,6 +54,7 @@
 .navLinks li a {
   color: rgb(238, 238, 239);
   text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 1.1rem;
   transition: color 0.3s ease;
   text-transform: uppercase;

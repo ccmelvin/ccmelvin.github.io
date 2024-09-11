@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import IsLive from "../../pages/LiveStream/IsLive";
 import styles from "./Navbar.module.css";
 import logo from '../../assets/images/logo-final.png';
 
@@ -24,8 +25,8 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logoContainer}>
-      <img src={logo} alt="Logo" className={styles.logo} />
-      <p className={styles.title}>Flyby Spotter</p>
+        <img src={logo} alt="Logo" className={styles.logo} />
+        <p className={styles.title}>Flyby Spotter</p>
       </div>
       <ul className={styles.navLinks}>
         <li>
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
             to="/live-stream"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
-            Live Stream
+            Live Stream <IsLive /> {/* Display the live indicator here */}
           </NavLink>
         </li>
         <li>

@@ -173,6 +173,7 @@
 @media (max-width: 768px) {
   .mainContent {
     flex-direction: column;
+    min-height: 2000px;
   }
 
   .leftColumn {

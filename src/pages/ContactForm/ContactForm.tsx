@@ -1,6 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./ContactForm.module.css";
-import airplaneHeader from "../../assets/images/air_plane_01.jpg";
+// import airplaneHeader from "../../assets/images/air_plane_01.jpg";
 import logo from "../../assets/images/logo-final.png";
 import {
   FaFacebook,
@@ -49,7 +49,7 @@ export default function ContactUs() {
 
   return (
     <div>
-      <img src={airplaneHeader} alt="Marine Airplane"  className={styles.contactFormImage} />
+      {/* <img src={airplaneHeader} alt="Marine Airplane"  className={styles.contactFormImage} /> */}
     <div className={styles.contactFormContainer}>
       <div className={styles.mainContent}>
         <div className={styles.leftColumn}>

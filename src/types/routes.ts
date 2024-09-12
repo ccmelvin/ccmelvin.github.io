@@ -1,10 +1,10 @@
-import React from 'react';
-import Home from '../pages/Home/Home';
-import AboutMe from '../pages/AboutMe/AboutMe';
-import LiveStream from '../pages/LiveStream/LiveStream';
-import Gallery from '../pages/Gallery/Gallery';
-import ContactForm from '../pages/ContactForm/ContactForm';
-import Crew from '../pages/Crew/Crew';
+import Home from "../pages/Home/Home";
+import AboutMe from "../pages/AboutMe/AboutMe";
+import LiveStream from "../pages/LiveStream/LiveStream";
+import Gallery from "../pages/Gallery/Gallery";
+import ContactForm from "../pages/ContactForm/ContactForm";
+import Crew from "../pages/Crew/Crew";
+import InfiniteScroll from "../components/InfiniteScroll/InfiniteScroll";
 
 export interface RouteConfig {
   path: string;
@@ -20,36 +20,32 @@ export interface Routes {
 
 export const routes: Routes = {
   home: {
-    path: '/',
+    path: "/",
     exact: true,
     component: Home,
   },
   about: {
-    path: '/about',
+    path: "/about",
     component: AboutMe,
   },
   liveStream: {
-    path: '/live-stream',
+    path: "/live-stream",
     component: LiveStream,
   },
   gallery: {
-    path: '/gallery',
+    path: "/gallery",
     component: Gallery,
   },
   contact: {
-    path: '/contact',
+    path: "/contact",
     component: ContactForm,
   },
   crew: {
-    path: '/crew',
+    path: "/crew",
     component: Crew,
   },
-
-  // Example of a future private route
-  // dashboard: {
-  //   path: '/dashboard',
-  //   component: Dashboard,
-  //   private: true,
-  //   redirectTo: '/login',
-  // },
+  infiniteGallery: {
+    path: "/infinite-scroll",
+    component: InfiniteScroll,
+  },
 };

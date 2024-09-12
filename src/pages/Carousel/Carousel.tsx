@@ -7,6 +7,7 @@ import us_navy from "../../assets/images/us_navy_03.png";
 import riodejaneiro_helicopter from "../../assets/images/riodejaneiro_sunset_surgarloaf_01.png";
 import american_airlines_01 from "../../assets/images/american_airlines_02.png";
 
+
 interface ArrowProps {
   className?: string;
   style?: React.CSSProperties;
@@ -46,6 +47,7 @@ const Carousel: React.FC = () => {
     fade: true,
     speed: 1500,
     autoplaySpeed: 5000,
+    accessibility: true,
   };
 
   const photos = [

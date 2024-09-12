@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh; /* Set the desired height for the carousel */
   margin: 0;
   padding: 0;
@@ -8,14 +8,14 @@
 }
 
 .carouselImage {
-  width: 100vw;
-  height: 100%; /* Set the desired height */
+  width: 100%;
+  height: auto; /* Set the desired height */
   object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 .carouselSlide {
   width: 100vw;
-  height: 100vh; /* Match height to the carousel */
+  height: 90vh; /* Match height to the carousel */
   position: relative;
 }
 
@@ -24,6 +24,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -43,7 +44,6 @@
   border-radius: 10px;
   z-index: 10;
   text-align: left;
-  margin-bottom: 10px;
 }
 
 .carouselAuthor {

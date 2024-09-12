@@ -1,11 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Header from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
-import { routes } from "./types/routes";
-import './styles/global.css'
-import './styles/theme.css'
-import './styles/variable.css'
+import { routes } from "./types/routes"; // Assuming this is the correct path for routes
+import "./styles/global.css";
+import "./styles/theme.css";
+import "./styles/variable.css";
 
 const App: React.FC = () => {
   return (
@@ -15,23 +20,32 @@ const App: React.FC = () => {
         <main className="main-content">
           <Routes>
             {Object.keys(routes).map((key) => {
-              const { path, component: Component, private: isPrivate, redirectTo } = routes[key];
-              
+              const {
+                path,
+                component: Component,
+                private: isPrivate,
+                redirectTo,
+              } = routes[key];
+
+              // Handle private routes if necessary
               if (isPrivate) {
                 return (
                   <Route
                     key={key}
                     path={path}
                     element={
-                      isAuthenticated() ? <Component /> : <Navigate to={redirectTo || '/login'} />
+                      isAuthenticated() ? (
+                        <Component />
+                      ) : (
+                        <Navigate to={redirectTo || "/login"} />
+                      )
                     }
                   />
                 );
               }
 
-              return (
-                <Route key={key} path={path} element={<Component />} />
-              );
+              // For normal routes, render the component
+              return <Route key={key} path={path} element={<Component />} />;
             })}
           </Routes>
         </main>
@@ -41,10 +55,9 @@ const App: React.FC = () => {
   );
 };
 
-// Placeholder authentication function, replace with real auth logic in the future
+// Placeholder authentication function
 const isAuthenticated = (): boolean => {
-  // This should check if the user is authenticated
-  return true; // Set to true or false depending on your auth logic
+  return true; // Replace with actual auth logic
 };
 
 export default App;

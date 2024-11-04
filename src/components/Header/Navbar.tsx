@@ -3,17 +3,26 @@ import { NavLink } from "react-router-dom";
 import IsLive from "../../pages/LiveStream/IsLive";
 import styles from "./Navbar.module.css";
 import logo from '../../assets/images/logo-final.png';
+import { debounce } from "lodash";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  const handleScroll = () => {
+  // const handleScroll = () => {
+  //   if (window.scrollY > 80) {
+  //     setScrolled(true);
+  //   } else {
+  //     setScrolled(false);
+  //   }
+  // };
+
+  const handleScroll = debounce(() => {
     if (window.scrollY > 80) {
       setScrolled(true);
     } else {
       setScrolled(false);
     }
-  };
+  }, 100);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

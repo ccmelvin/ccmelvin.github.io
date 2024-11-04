@@ -26,8 +26,6 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
     autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
     centerMode: false,
   };
 
@@ -78,18 +76,5 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
   );
 };
 
-const SampleNextArrow = (props: { onClick: () => void }) => {
-    const { onClick } = props;
-    return (
-      <div className={`${styles.arrow} ${styles.next}`} onClick={onClick} />
-    );
-  };
-  
-  const SamplePrevArrow = (props: { onClick: () => void }) => {
-    const { onClick } = props;
-    return (
-      <div className={`${styles.arrow} ${styles.prev}`} onClick={onClick} />
-    );
-  };
   
 export default GalleryCard;

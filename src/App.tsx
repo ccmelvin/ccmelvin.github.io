@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
-import { routes } from "./types/routes"; // Assuming this is the correct path for routes
+import { routes } from "./types/routes";
 import "./styles/global.css";
 import "./styles/theme.css";
 import "./styles/variable.css";

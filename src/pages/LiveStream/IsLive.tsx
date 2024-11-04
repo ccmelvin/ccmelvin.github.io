@@ -7,10 +7,10 @@ const IsLive: React.FC = () => {
 
   const checkLiveStatus = async () => {
     try {
-      // Fetch the live status from the backend
+      console.log('Checking live status...');
       const response = await axios.get('http://localhost:3001/api/checkLiveStatus');
-      setIsLive(response.data.isLive);
-      console.log('Live status:', response.data.isLive);
+      console.log('API Response:', response.data);
+      setIsLive(response.data.isLive); // Or response.data.isStreaming if that’s the correct key
     } catch (err) {
       console.warn('Error fetching live status:', err);
       setIsLive(false);
@@ -29,7 +29,7 @@ const IsLive: React.FC = () => {
 
   return (
     <span className={styles.liveIndicator}>
-      {isLive ? '🔴 LIVE' : null}
+      {isLive ? '🔴 LIVE' : 'Currently Offline'}
     </span>
   );
 };

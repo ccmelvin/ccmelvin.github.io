@@ -4,7 +4,7 @@ import LiveStream from "../pages/LiveStream/LiveStream";
 import Gallery from "../pages/Gallery/Gallery";
 import ContactForm from "../pages/ContactForm/ContactForm";
 import Crew from "../pages/Crew/Crew";
-import InfiniteScroll from "../components/InfiniteScroll/InfiniteScroll";
+
 
 export interface RouteConfig {
   path: string;
@@ -43,9 +43,5 @@ export const routes: Routes = {
   crew: {
     path: "/crew",
     component: Crew,
-  },
-  infiniteGallery: {
-    path: "/infinite-scroll",
-    component: InfiniteScroll,
   },
 };

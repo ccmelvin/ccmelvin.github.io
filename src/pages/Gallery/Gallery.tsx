@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import GalleryCard from '../../components/GalleryCard/GalleryCard';
 import { initialGallery } from '../../types/gallery';
+import './Gallery.module.css';
 
 const Gallery: React.FC = () => {
   const [galleryItems, setGalleryItems] = useState(initialGallery);

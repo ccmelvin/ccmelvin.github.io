@@ -24,13 +24,7 @@ export default function ContactUs() {
       [name]: value,
     }));
   };
-
-  // const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted", formData);
-  //   setIsSubmitted(true);
-  // };
-
+  
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   

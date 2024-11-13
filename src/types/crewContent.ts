@@ -5,9 +5,9 @@ import victoria3 from "../assets/images/crew/brazil-family-airplane-selfie.jpg";
 import gustavinho1 from "../assets/images/crew/gustavinho-cavalheiro-son-mirassol.jpeg"
 import gustavinho2 from "../assets/images/crew/brazil-family-photo-airplane-mirassol.jpg";
 import gustavinho3 from "../assets/images/crew/gustavo-son-pilot-student-raleigh.jpg";
-import cassia1 from "../assets/images/crew/cassia-melvin-london-sightseeing-2.jpg";
+import cassia1 from "../assets/images/crew/cassia-melvin-web-design-project.jpg";
 import cassia2 from "../assets/images/crew/cassia-melvin-scotland-trip.jpg";
-import cassia3 from "../assets/images/crew/cassia-melvin-web-design-project.jpg";
+import cassia3 from "../assets/images/crew/cassia-melvin-london-sightseeing-1.jpg";
 import colonMelvin1 from "../assets/images/crew/colon-melvin-san-diego-airplane.jpg";
 import colonMelvin2 from "../assets/images/crew/colon-melvin-sao-paulo-airport.jpg";
 import colonMelvin3 from "../assets/images/crew/colon-melvin-utah-airplane.jpg";

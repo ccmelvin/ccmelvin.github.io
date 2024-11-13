@@ -16,10 +16,11 @@ const Footer: React.FC = () => {
         <div className={styles.connect}>
           <p className={styles.title}>Flyby Spotter</p>
           <div className={styles.contactInfo}>
-            <p>
-              <FaEnvelope className={styles.icon} /> info@flybyspotter.com
+            <p className={styles.email}>
+              <FaEnvelope className={styles.icon} /> 
+              <a href="mailto:FlyBYass@gmail.com">FlyBYass@gmail.com</a>
             </p>
-            <p>
+            <p className={styles.phone}>
               <FaWhatsapp className={styles.icon} /> +1 555 555 5555
             </p>
           </div>

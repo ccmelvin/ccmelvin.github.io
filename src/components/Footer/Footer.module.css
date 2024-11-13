@@ -37,9 +37,34 @@
 }
 
 .contactInfo p {
+  display: flex;
+  align-items: center;
   margin: 5px 0;
   font-size: 0.9rem;
   color: #666;
+}
+
+.contactInfo p:hover .icon {
+  transform: rotate(10deg);
+  font-size: 1.5rem;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.email a {
+  color:#666;
+  text-align: center;
+}
+
+.socialLinks li:hover .icon{
+  color: var(--secondary-text-color);
+  transform: rotate(10deg) scale(1.1);
+  font-size: 1.5rem;
 }
 
 .socialLinks {
@@ -50,6 +75,7 @@
 }
 
 .socialLinks li {
+  transition: transform 0.3s ease;
   margin-right: 15px;
 }
 
@@ -85,16 +111,17 @@
 }
 
 .menu ul li a, .categories ul li a {
-  color: #666; /* Match the email text color */
+  color: #666;
   text-decoration: none;
 }
 
 .menu ul li a:hover, .categories ul li a:hover {
-  color: #1a73e8; /* Optional: Add a hover effect */
+  color: #1a73e8;
 }
 
 .icon {
   margin-right: 8px;
+  text-align: center;
   font-size: 1.2rem;
 }
 .copywrite {

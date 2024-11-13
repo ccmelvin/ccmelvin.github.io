@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import { Heart, Minus } from "lucide-react";
+import LazyLoad from "react-lazyload";
 import styles from "./GalleryCard.module.css";
 import { GalleryItem } from "../../types/gallery";
 
@@ -11,7 +12,7 @@ interface GalleryCardProps {
 
 const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(
-    items[0]
+    items[0] || null
   );
 
   const handleItemClick = (item: GalleryItem) => {
@@ -22,35 +23,60 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    autoplaySpeed: 5000,
-    autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
+  if (!selectedItem) {
+    return <p>No items to display.</p>;
+  }
 
   return (
     <div
       className={styles.heroBackground}
-      style={{ backgroundImage: `url(${selectedItem?.imageUrl})` }}
+      style={{ backgroundImage: `url(${selectedItem.imageUrl})` }}
     >
+      {/* Hero Content */}
       <div className={styles.heroContent}>
-        <Minus className={styles.minusIcon} />
-        <h1 className={styles.heroTitle}>{selectedItem?.title || ""}</h1>
-        <p className={styles.heroDescription}>
-          {selectedItem?.description || ""}
-        </p>
-        <p className={styles.heroContent2}>{selectedItem?.content || ""}</p>
-        <button className={styles.heroButton}>Discover Location</button>
+        <Minus className={styles.minusIcon} aria-hidden="true" />
+        <h1 className={styles.heroTitle}>{selectedItem.title}</h1>
+        <p className={styles.heroDescription}>{selectedItem.description}</p>
+        <p className={styles.heroContent2}>{selectedItem.content}</p>
+        <button className={styles.heroButton} aria-label="Discover Location">
+          Discover Location
+        </button>
+
+        {/* Like Button */}
         <div
           className={styles.likeButton}
-          onClick={() => onLike(selectedItem?.id || "")}
+          onClick={() => onLike(selectedItem.id)}
+          role="button"
+          aria-pressed="false"
+          tabIndex={0}
         >
-          <Heart className={styles.heartIcon} />
-          <span>{selectedItem?.likes || 0}</span>
+          <Heart className={styles.heartIcon} aria-hidden="true" />
+          <span>{selectedItem.likes}</span>
         </div>
       </div>
 
+      {/* Thumbnail Slider */}
       <div className={styles.sliderContainer}>
         <Slider {...settings}>
           {items.map((item) => (
@@ -58,15 +84,30 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
               key={item.id}
               className={styles.sliderItem}
               onClick={() => handleItemClick(item)}
+              role="button"
+              aria-pressed={selectedItem.id === item.id ? "true" : "false"}
+              aria-label={`View image ${item.title}`}
+              tabIndex={0}
             >
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className={styles.sliderImage}
-              />
+              <LazyLoad
+                height={260}
+                offset={100}
+                placeholder={<div className={styles.placeholder}></div>}
+              >
+                <img
+                  src={item.imageUrl}
+                  srcSet={`${item.imageUrl} 300w, ${item.imageUrl} 600w, ${item.imageUrl} 900w`}
+                  sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 900px"
+                  alt={item.altText}
+                  className={`${styles.sliderImage} ${
+                    selectedItem.id === item.id ? styles.activeThumbnail : ""
+                  }`}
+                  loading="lazy"
+                />
+              </LazyLoad>
+
               <div className={styles.sliderOverlay}>
                 <p>{item.title}</p>
-                <p>{item.description}</p>
               </div>
             </div>
           ))}
@@ -76,5 +117,4 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
   );
 };
 
-  
 export default GalleryCard;

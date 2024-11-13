@@ -1,21 +1,21 @@
 .carousel {
   position: relative;
   width: 100%;
-  height: 100vh; /* Set the desired height for the carousel */
+  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent overflow issues */
+  overflow: hidden;
 }
 
 .carouselImage {
   width: 100%;
-  height: auto; /* Set the desired height */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
+  height: auto;
+  object-fit: cover; 
 }
 
 .carouselSlide {
   width: 100vw;
-  height: 90vh; /* Match height to the carousel */
+  height: 100vh;
   position: relative;
 }
 
@@ -56,7 +56,7 @@
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .carouselImage {
-    height: 60vh; /* Adjust image height on smaller screens */
+    height: 60vh;
   }
 
   .carouselDescription {
@@ -71,7 +71,7 @@
 
 @media (max-width: 480px) {
   .carouselImage {
-    height: 50vh; /* Further reduce image height for mobile screens */
+    height: 50vh;
   }
 
   .carouselDescription {

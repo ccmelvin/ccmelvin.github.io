@@ -14,7 +14,7 @@ const channelID = process.env.YOUTUBE_CHANNEL_ID;
 const apiKey = process.env.YOUTUBE_API_KEY;
 
 async function checkStreamingStatus(channelID) {
-  const fetch = (await import("node-fetch")).default; // Dynamically import node-fetch
+  const fetch = (await import("node-fetch")).default;
   const response = await fetch(`https://youtube.com/channel/${channelID}/live`);
   const text = await response.text();
   const html = parse(text);
@@ -38,7 +38,7 @@ app.get("/api/checkLiveStatus", async (req, res) => {
   const channelUrl = `https://www.youtube.com/channel/${channelId}/live`;
 
   try {
-    const fetch = (await import("node-fetch")).default; // Dynamically import node-fetch
+    const fetch = (await import("node-fetch")).default;
     const response = await fetch(channelUrl);
     const html = parse(await response.text());
     const canonicalURLTag = html.querySelector("link[rel=canonical]");

@@ -1,16 +1,21 @@
 import React from 'react';
 import styles from './AboutMe.module.css';
-import profile from '../../assets/images/gustavo_airplane_sao_paulo_01.jpg';
+import profile from '../../assets/images/crew/gustavo-airplane-sao-paulo.jpg';
 
 const AboutMe: React.FC = () => {
   return (
-    <div className={styles.aboutMe}>
-      <img src={profile} alt="Me" className={styles.profileImage} />
-      <h1>My story <span className={styles.titleDot}>.</span></h1>
+    <main className={styles.aboutMe} role="main">
+      <img 
+        src={profile} 
+        alt="Gustavo standing next to an airplane in São Paulo" 
+        className={styles.profileImage}
+        loading="lazy"
+      />
+      <h1>My story <span className={styles.titleDot} aria-hidden="true">.</span></h1>
       <p>Hello, and welcome to FlyBy Spotter!</p>
 
       <p>
-        I’m Gustavo, an aviation enthusiast with a lifelong passion for airplanes. My story begins in São Paulo,
+        I'm Gustavo, an aviation enthusiast with a lifelong passion for airplanes. My story begins in São Paulo,
         where I grew up just a stone's throw away from Guarulhos Airport, the busiest in Latin America. Living so close
         to the constant hum of jet engines and the thrill of takeoffs and landings, it was inevitable that I'd develop a
         deep love for aviation.
@@ -37,8 +42,7 @@ const AboutMe: React.FC = () => {
       </p>
 
       <p>Thank you for stopping by, and happy spotting!</p>
-    </div>
+    </main>
   );
 };
-
 export default AboutMe;

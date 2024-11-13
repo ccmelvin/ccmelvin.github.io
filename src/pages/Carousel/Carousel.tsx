@@ -3,9 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Carousel.module.css";
-import us_navy from "../../assets/images/us_navy_03.png";
-import riodejaneiro_helicopter from "../../assets/images/riodejaneiro_sunset_surgarloaf_01.png";
-import american_airlines_01 from "../../assets/images/american_airlines_02.png";
+import us_navy from "../../assets/images/carousel/us_navy_03.png";
+import riodejaneiro_helicopter from "../../assets/images/carousel/riodejaneiro_sunset_surgarloaf_01.png";
+import american_airlines_01 from "../../assets/images/carousel/american_airlines_02.png";
 
 
 interface ArrowProps {

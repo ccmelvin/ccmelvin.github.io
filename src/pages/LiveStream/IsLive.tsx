@@ -7,29 +7,25 @@ const IsLive: React.FC = () => {
 
   const checkLiveStatus = async () => {
     try {
-      console.log('Checking live status...');
       const response = await axios.get('http://localhost:3001/api/checkLiveStatus');
-      console.log('API Response:', response.data);
       setIsLive(response.data.isLive); // Or response.data.isStreaming if that’s the correct key
     } catch (err) {
-      console.warn('Error fetching live status:', err);
       setIsLive(false);
     }
   };
 
   useEffect(() => {
-    checkLiveStatus(); // Initial check when the component mounts
-
+    checkLiveStatus();
     const interval = setInterval(() => {
-      checkLiveStatus(); // Poll every 60 seconds
-    }, 60000);
+      checkLiveStatus();
+    }, isLive ? 60000 : 300000);
 
-    return () => clearInterval(interval); // Clean up on component unmount
-  }, []);
+    return () => clearInterval(interval);
+  }, [isLive]);
 
   return (
-    <span className={styles.liveIndicator}>
-      {isLive ? '🔴 LIVE' : 'Currently Offline'}
+    <span className={`${styles.liveIndicator} ${isLive ? styles.active : ''}`}>
+      {isLive ? '🔴 LIVE' : ''}
     </span>
   );
 };

@@ -1,28 +1,64 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 100px;
-    background-color: #f9f9f9; /* Background color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin-top: 70px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+  min-height: 0vh; /* This ensures full viewport height coverage */
+}
+
+.latestText {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.video {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Media query for tablets */
+@media (max-width: 900px) {
+  .container {
+    padding: 30px; /* Smaller padding on tablets */
   }
-  
+
   .latestText {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 100px;
-    margin-bottom: 15px;
-    text-align: center;
+    font-size: 22px;
   }
-  
-  iframe {
+
+  .video {
+    max-width: 600px;
+  }
+}
+
+/* Media query for mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px; /* Smaller padding on mobile */
+  }
+
+  .latestText {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .video {
     width: 100%;
-    max-width: 800px; /* Set a max width to keep the video responsive */
-    height: 450px; /* Adjust height for better aspect ratio */
-    border: none;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Slight shadow for a floating effect */
-    border-radius: 8px; /* Rounded corners */
+    height: auto; /* Ensures responsive height based on width */
   }
-  
+}

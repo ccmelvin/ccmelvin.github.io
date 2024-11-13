@@ -28,6 +28,10 @@ export const routes: Routes = {
     path: "/about",
     component: AboutMe,
   },
+  crew: {
+    path: "/crew",
+    component: Crew,
+  },
   liveStream: {
     path: "/live-stream",
     component: LiveStream,
@@ -40,8 +44,5 @@ export const routes: Routes = {
     path: "/contact",
     component: ContactForm,
   },
-  crew: {
-    path: "/crew",
-    component: Crew,
-  },
+  
 };

@@ -1,37 +1,58 @@
 /* src/pages/AboutMe.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 .aboutMe {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  .aboutMe h1 {
-    font-size: 2rem;
-    color: #1a73e8;
-    margin-bottom: 20px;
-    font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  }
-  .titleDot {
-    font-size: 1.8rem;
-    color: #bf1104;
-    margin-bottom: 20px;
-    font-family: "Dancing Script", cursive;
-    font-weight: bold;
-    font-optical-sizing: auto;
+  max-width: 900px;
+  margin: 200px auto;
+  padding: clamp(16px, 4vw, 20px);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+  width: 90%;
 }
 
-  
-  .aboutMe p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-weight: 100;
+.profileImage {
+  width: 100%;
+  max-width: fit-content;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto 0px;
+  display: block;
+}
+
+.aboutMe h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: #1a73e8;
+  margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+}
+
+.titleDot {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  color: #bf1104;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+}
+
+.aboutMe p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 768px) {
+  .aboutMe {
+      margin: 10px auto;
+      box-shadow: none;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .aboutMe {
+      padding: 12px;
+  }
+}

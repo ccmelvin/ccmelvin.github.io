@@ -78,18 +78,25 @@
   padding: 0;
   margin: 0;
 }
-
 .menu ul li, .categories ul li {
   margin: 5px 0;
   font-size: 1rem;
   color: #666;
 }
 
+.menu ul li a, .categories ul li a {
+  color: #666; /* Match the email text color */
+  text-decoration: none;
+}
+
+.menu ul li a:hover, .categories ul li a:hover {
+  color: #1a73e8; /* Optional: Add a hover effect */
+}
+
 .icon {
   margin-right: 8px;
   font-size: 1.2rem;
 }
-
 .copywrite {
   border-top: 1px solid #dad8d8;
   margin-top: 20px;

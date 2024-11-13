@@ -1,31 +1,16 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./ContactForm.module.css";
-import logo from "../../assets/images/logo-final.png";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaEnvelope,
-} from "react-icons/fa";
-
-interface FormField {
-  value: string;
-  touched: boolean;
-}
-
-interface ContactFormState {
-  name: FormField;
-  email: FormField;
-  subject: FormField;
-  message: FormField;
-}
+import logo from "../../assets/logo/flyby-spotter-logo.png";
+import { Helmet } from "react-helmet-async";
+import { FaFacebook, FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
 
 export default function ContactUs() {
-  const [formState, setFormState] = useState<ContactFormState>({
-    name: { value: "", touched: false },
-    email: { value: "", touched: false },
-    subject: { value: "", touched: false },
-    message: { value: "", touched: false },
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,93 +19,168 @@ export default function ContactUs() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: { value, touched: true },
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  // const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted", formData);
+  //   setIsSubmitted(true);
+  // };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted", formState);
-    setIsSubmitted(true);
+  
+    // Assuming there's an API endpoint to receive form submissions
+    try {
+      const response = await fetch("https://your-api-endpoint.com/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        // Optional: Redirect to a thank-you page or some other action
+        window.location.href = "/thank-you";
+      } else {
+        console.error("Submission failed");
+      }
+    } catch (error) {
+      console.error("An error occurred during form submission", error);
+    }
   };
+  
 
   return (
-    <div>
-    <div className={styles.contactFormContainer}>
-      <div className={styles.mainContent}>
-        <div className={styles.leftColumn}>
-          <div className={styles.leftColumnHeader}>
-            <img src={logo} alt="Flyby Spotter Logo" className={styles.contactFormLogo} />
-            <h1>Get In Touch</h1>
-          </div>
-          <h2 className={styles.leftColumnTitle}>Contact Info</h2>
-          <p><FaEnvelope /> FlyBYass@gmail.com</p>
-          <div className={styles.socialIcons}>
-            <FaFacebook />
-            <FaInstagram />
-            <FaYoutube />
-            
+    <>
+    <Helmet>
+        <title>Contact Us | Flyby Spotter</title>
+        <meta name="description" content="Get in touch with Flyby Spotter for inquiries, support, or collaborations." />
+      </Helmet>
+    <section className={styles.contactSection}>
+      <div className={styles.contactContainer}>
+        <div className={styles.infoPanel}>
+          <div className={styles.infoPanelContent}>
+            <img src={logo} alt="Flyby Spotter Logo" className={styles.logo} />
+            <h2>Get In Touch</h2>
+              <div className={styles.emailContainer}>
+                <FaEnvelope className={styles.icon} />
+                <a href="mailto:FlyBYass@gmail.com">FlyBYass@gmail.com</a>
+              </div>
+            <div className={styles.socialLinks}>
+              <a
+                href="https://www.facebook.com/orlandocleaningsolutionsllc/"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://www.instagram.com/flyby_spotter/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.youtube.com/@FlyBySpotter"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className={styles.rightColumn}>
+        <div className={styles.formPanel}>
           {isSubmitted ? (
             <div className={styles.successMessage}>
-              Thank you for your message. We'll get back to you soon!
+              <h3>Thank you for reaching out!</h3>
+              <p>We'll get back to you soon.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-              <h2>Send us a Message</h2>
-              <div className={styles.formGroup}>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Your Name"
-                  value={formState.name.value}
-                  onChange={handleChange}
-                />
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <h2>We’d Love to Hear from You</h2>
+              <div className={styles.formFields}>
+                <div className={styles.formRow}>
+                  <div className={styles.formGroup}>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label className={formData.firstName ? styles.filled : ""}>
+                      First Name
+                    </label>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label className={formData.lastName ? styles.filled : ""}>
+                      Last Name
+                    </label>
+                  </div>
+                </div>
+                <div className={styles.formGroup}>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label className={formData.email ? styles.filled : ""}>
+                    Email Address
+                  </label>
+                </div>
+                <div className={styles.formGroup}>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label className={formData.subject ? styles.filled : ""}>
+                    Subject
+                  </label>
+                </div>
+                <div className={styles.formGroup}>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label className={formData.message ? styles.filled : ""}>
+                    Your Message
+                  </label>
+                </div>
+                <button type="submit">Send Message</button>
               </div>
-              <div className={styles.formGroup}>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email Address"
-                  value={formState.email.value}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  placeholder="Subject"
-                  value={formState.subject.value}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Your Message"
-                  rows={4}
-                  value={formState.message.value}
-                  onChange={handleChange}
-                />
-              </div>
-              <button type="submit" className={styles.submitButton}>
-                Submit
-              </button>
             </form>
           )}
         </div>
       </div>
-    </div>
-    </div>
+    </section>
+    </>
   );
 }

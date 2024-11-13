@@ -5,6 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import Header from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
 import { routes } from "./types/routes";
@@ -14,44 +15,46 @@ import "./styles/variable.css";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <div className="app-container">
-        <Header />
-        <main className="main-content">
-          <Routes>
-            {Object.keys(routes).map((key) => {
-              const {
-                path,
-                component: Component,
-                private: isPrivate,
-                redirectTo,
-              } = routes[key];
+    <HelmetProvider>
+      <Router>
+        <div className="app-container">
+          <Header />
+          <main className="main-content">
+            <Routes>
+              {Object.keys(routes).map((key) => {
+                const {
+                  path,
+                  component: Component,
+                  private: isPrivate,
+                  redirectTo,
+                } = routes[key];
 
-              // Handle private routes if necessary
-              if (isPrivate) {
-                return (
-                  <Route
-                    key={key}
-                    path={path}
-                    element={
-                      isAuthenticated() ? (
-                        <Component />
-                      ) : (
-                        <Navigate to={redirectTo || "/login"} />
-                      )
-                    }
-                  />
-                );
-              }
+                // Handle private routes if necessary
+                if (isPrivate) {
+                  return (
+                    <Route
+                      key={key}
+                      path={path}
+                      element={
+                        isAuthenticated() ? (
+                          <Component />
+                        ) : (
+                          <Navigate to={redirectTo || "/login"} />
+                        )
+                      }
+                    />
+                  );
+                }
 
-              // For normal routes, render the component
-              return <Route key={key} path={path} element={<Component />} />;
-            })}
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+                // For normal routes, render the component
+                return <Route key={key} path={path} element={<Component />} />;
+              })}
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 };
 

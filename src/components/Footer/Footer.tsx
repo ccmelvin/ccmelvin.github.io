@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 import styles from "./Footer.module.css";
 
 const Footer: React.FC = () => {
@@ -28,6 +29,7 @@ const Footer: React.FC = () => {
                 href="https://www.facebook.com/orlandocleaningsolutionsllc/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
                 <FaFacebook className={styles.icon} />
               </a>
@@ -37,6 +39,7 @@ const Footer: React.FC = () => {
                 href="https://www.instagram.com/flyby_spotter/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
                 <FaInstagram className={styles.icon} />
               </a>
@@ -46,6 +49,7 @@ const Footer: React.FC = () => {
                 href="https://www.youtube.com/@FlyBySpotter"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube"
               >
                 <FaYoutube className={styles.icon} />
               </a>
@@ -55,23 +59,34 @@ const Footer: React.FC = () => {
         <div className={styles.menu}>
           <h3>MENU</h3>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact Us</li>
+            <li>
+              <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" onClick={() => window.scrollTo(0, 0)}>About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" onClick={() => window.scrollTo(0, 0)}>Contact Us</NavLink>
+            </li>
           </ul>
         </div>
         <div className={styles.categories}>
           <h3>CATEGORIES</h3>
           <ul>
-            <li>Live Stream</li>
-            <li>Gallery</li>
-
-            <li>Crew</li>
+            <li>
+              <NavLink to="/live-stream" onClick={() => window.scrollTo(0, 0)}>Live Stream</NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" onClick={() => window.scrollTo(0, 0)}>Gallery</NavLink>
+            </li>
+            <li>
+              <NavLink to="/crew" onClick={() => window.scrollTo(0, 0)}>Crew</NavLink>
+            </li>
           </ul>
         </div>
       </div>
       <p className={styles.copywrite}>
-        &copy; 2024 Flyby Spotter.
+        © 2024 Flyby Spotter.
       </p>
     </div>
   );

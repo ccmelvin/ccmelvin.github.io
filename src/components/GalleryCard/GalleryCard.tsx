@@ -59,9 +59,9 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
         <h1 className={styles.heroTitle}>{selectedItem.title}</h1>
         <p className={styles.heroDescription}>{selectedItem.description}</p>
         <p className={styles.heroContent2}>{selectedItem.content}</p>
-        <button className={styles.heroButton} aria-label="Discover Location">
+        {/* <button className={styles.heroButton} aria-label="Discover Location">
           Discover Location
-        </button>
+        </button> */}
 
         {/* Like Button */}
         <div

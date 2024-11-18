@@ -1,3 +1,8 @@
+import airplaneWingOverOceanClouds from "../assets/images/gallery/flybyspotter-airplane-wing-over-ocean-clouds.jpg";
+import airplaneWingAboveFarmland from "../assets/images/gallery/flybyspotter-airplane-wing-above-farmland.jpg";
+import blueAngelsMarineAircraft from "../assets/images/gallery/flybyspotter-blue-angels-marine-aircraft.jpg";
+import airplaneLandingRDU from "../assets/images/gallery/flybyspotter-airplane-landing-rdu-raleigh.jpg";
+import airplaneWingSunsetSky from "../assets/images/gallery/flybyspotter-airplane-wing-sunset-sky.jpg";
 export interface GalleryItem {
   id: string;
   imageUrl: string;
@@ -10,11 +15,6 @@ export interface GalleryItem {
   tags: string[];
 }
 
-import airplaneWingOverOceanClouds from "../assets/images/gallery/flybyspotter-airplane-wing-over-ocean-clouds.jpg";
-import airplaneWingAboveFarmland from "../assets/images/gallery/flybyspotter-airplane-wing-above-farmland.jpg";
-import blueAngelsMarineAircraft from "../assets/images/gallery/flybyspotter-blue-angels-marine-aircraft.jpg";
-import airplaneLandingRDU from "../assets/images/gallery/flybyspotter-airplane-landing-rdu-raleigh.jpg";
-import airplaneWingSunsetSky from "../assets/images/gallery/flybyspotter-airplane-wing-sunset-sky.jpg";
 
 export const initialGallery: GalleryItem[] = [
   {

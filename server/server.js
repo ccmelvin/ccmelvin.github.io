@@ -1,79 +1,84 @@
 const express = require("express");
 const cors = require("cors");
-const { parse } = require("node-html-parser");
-const dotenv = require("dotenv");
-
-dotenv.config();
+const puppeteer = require("puppeteer");
+const NodeCache = require("node-cache");
 
 const app = express();
 const port = 3001;
+const myCache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
 
 app.use(cors());
 
-const channelID = process.env.YOUTUBE_CHANNEL_ID;
-const apiKey = process.env.YOUTUBE_API_KEY;
-
-async function checkStreamingStatus(channelID) {
-  const fetch = (await import("node-fetch")).default;
-  const response = await fetch(`https://youtube.com/channel/${channelID}/live`);
-  const text = await response.text();
-  const html = parse(text);
-  const canonicalURLTag = html.querySelector("link[rel=canonical]");
-
-  if (!canonicalURLTag) {
-    console.log("No canonical URL tag found.");
-    return false;
+app.get("/api/youtube-videos", async (req, res) => {
+  // Check cache first
+  const cachedVideos = myCache.get("videos");
+  if (cachedVideos) {
+    return res.json({ items: cachedVideos });
   }
 
-  const canonicalURL = canonicalURLTag.getAttribute("href");
-  const isStreaming = canonicalURL.includes("/watch?v=");
-  console.log("Stream is live");
-  return isStreaming;
-}
-
-checkStreamingStatus(channelID);
-
-app.get("/api/checkLiveStatus", async (req, res) => {
-  const channelId = channelID;
-  const channelUrl = `https://www.youtube.com/channel/${channelId}/live`;
-
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+  
+  const page = await browser.newPage();
+  
   try {
-    const fetch = (await import("node-fetch")).default;
-    const response = await fetch(channelUrl);
-    const html = parse(await response.text());
-    const canonicalURLTag = html.querySelector("link[rel=canonical]");
-    const canonicalURL = canonicalURLTag.getAttribute("href");
-    const isStreaming = canonicalURL.includes("/watch?v=");
+    await page.goto('https://www.youtube.com/@FlyBySpotter/videos', {
+      waitUntil: 'networkidle0',
+      timeout: 30000
+    });
 
-    console.log("Live Status Check:", isStreaming);
-    res.json({ isStreaming });
+    // Scroll to load more videos
+    await autoScroll(page);
+
+    const videos = await page.evaluate(() => {
+      const videoElements = document.querySelectorAll("ytd-grid-video-renderer");
+      return Array.from(videoElements).map(video => {
+        const titleElement = video.querySelector("#video-title");
+        const thumbnailElement = video.querySelector("img");
+        const href = titleElement.href;
+        const videoId = href.split('v=')[1];
+        
+        return {
+          id: videoId,
+          title: titleElement.textContent.trim(),
+          url: href,
+          thumbnail: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
+        };
+      });
+    });
+
+    // Cache the results
+    myCache.set("videos", videos);
+    res.json({ items: videos });
   } catch (error) {
-    console.error("Error fetching live status:", error.message);
-    res
-      .status(500)
-      .json({ error: "Failed to fetch live status", details: error.message });
+    console.error("Error fetching videos:", error);
+    res.status(500).json({ error: "Failed to fetch videos" });
+  } finally {
+    await browser.close();
   }
 });
 
-// Simple API endpoint to return paginated mock data
-app.get('/api/data', (req, res) => {
-  const page = parseInt(req.query.page) || 1;
-  const limit = 10;
+// Helper function to scroll and load all videos
+async function autoScroll(page) {
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      let totalHeight = 0;
+      const distance = 100;
+      const timer = setInterval(() => {
+        const scrollHeight = document.documentElement.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
 
-  const allData = Array.from({ length: 100 }, (_, i) => ({
-    id: i + 1,
-    text: `Item ${i + 1}`,
-  }));
-
-  const start = (page - 1) * limit;
-  const paginatedData = allData.slice(start, start + limit);
-  const hasMore = start + limit < allData.length;
-
-  res.json({ data: paginatedData, hasMore });
-  console.log("API endpoint called");
-});
-
-
+        if(totalHeight >= scrollHeight){
+          clearInterval(timer);
+          resolve();
+        }
+      }, 100);
+    });
+  });
+}
 
 app.listen(port, () => {
   console.log(`Backend server running at http://localhost:${port}`);

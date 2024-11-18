@@ -45,8 +45,6 @@ const App: React.FC = () => {
                     />
                   );
                 }
-
-                // For normal routes, render the component
                 return <Route key={key} path={path} element={<Component />} />;
               })}
             </Routes>

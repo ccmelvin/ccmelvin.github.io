@@ -97,6 +97,7 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 10px;
+  
 }
 
 .menu ul, .categories ul {
@@ -117,6 +118,8 @@
 
 .menu ul li a:hover, .categories ul li a:hover {
   color: #1a73e8;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
 }
 
 .icon {

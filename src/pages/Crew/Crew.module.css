@@ -1,87 +1,80 @@
 .crewContainer {
-  width: 80%;
-  max-width: 60rem;
-  margin: 18rem auto;
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 1.5rem;
   text-align: center;
-  background: var(--accent-color);
+  /* background-color: var(--background-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+  border-radius: 8px;
   font-family: inherit;
+  text-align: start;
 }
 
 .crewHeading {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: clamp(5rem, 3vw, 7rem);
+  font-weight: 500;
   color: #333;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .crewSection {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   margin: 2rem 0;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .crewSection:nth-child(odd) {
   flex-direction: row-reverse;
 }
 
-.crewImage {
-  width: 20rem;
-  height: 20rem;
-  object-fit: cover;
- border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-.crewImage:hover {
-  width: 30rem;
-  height: 30rem;
-  
-}
-
-.crewImage:hover {
-  transform: scale(1.05);
+.crewImageWrapper {
+  width: 60%;
+  max-width: 600px;
 }
 
 .crewTextWrapper {
-  text-align: left;
-  flex: 1;
+  width: 90%;
+  padding: 0 1rem;
+}
+
+.crewImage {
+  width: 500px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .crewSubheading {
   margin: 0;
   color: #333;
-  font-size: 1.5rem;
-  color: #333333;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 300;
   letter-spacing: 2px;
   margin-left: 10px;
   padding-bottom: 0.3em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: "Dancing Script", cursive;
-  text-align: left;
 }
 
 .crewParagraph {
   max-width: 60ch;
   margin: 0.1rem 0;
   padding: 0.3rem 0;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   font-weight: 300;
   letter-spacing: 1px;
   line-height: 1.5;
   color: #555;
 }
-.crewParagraphTitle{
+
+.crewParagraphTitle {
   margin-top: 10px;
-  font-size: 1.5rem;
-  color: #333333;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: #333;
   font-weight: 300;
   letter-spacing: 1px;
   margin-left: 10px;  
@@ -89,24 +82,16 @@
   text-align: left;
 }
 
-.spanText {
-  color: #043a74;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: "Dancing Script", cursive;
-}
-
-
 .thumbnailWrapper {
-  margin-top: 1rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .thumbnail {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
@@ -115,4 +100,56 @@
 
 .thumbnail:hover {
   border: 2px solid #333;
+}
+
+@media (max-width: 768px) {
+  .crewSection,
+  .crewSection:nth-child(odd) {
+    flex-direction: column;
+  }
+
+  .crewImageWrapper,
+  .crewTextWrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .crewImageWrapper {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .crewContainer {
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .thumbnail {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* Add support for larger screens */
+@media (min-width: 1440px) {
+  .crewContainer {
+    max-width: 1400px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .crewContainer {
+    background-color: var(--background-color-dark, #1a1a1a);
+  }
+  
+  .crewHeading,
+  .crewSubheading {
+    color: var(--text-color-dark, #f0f0f0);
+  }
+  
+  .crewParagraph {
+    color: var(--text-color-secondary-dark, #d0d0d0);
+  }
 }

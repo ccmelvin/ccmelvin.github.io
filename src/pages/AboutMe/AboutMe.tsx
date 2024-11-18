@@ -11,6 +11,7 @@ const AboutMe: React.FC = () => {
         className={styles.profileImage}
         loading="lazy"
       />
+      <div className={styles.aboutMeContent}>
       <h1>My story <span className={styles.titleDot} aria-hidden="true">.</span></h1>
       <p>Hello, and welcome to FlyBy Spotter!</p>
 
@@ -42,6 +43,7 @@ const AboutMe: React.FC = () => {
       </p>
 
       <p>Thank you for stopping by, and happy spotting!</p>
+      </div>
     </main>
   );
 };

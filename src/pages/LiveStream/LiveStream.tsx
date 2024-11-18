@@ -1,61 +1,39 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import styles from './LiveStream.module.css';
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import styles from "./LiveStream.module.css";
+
+interface YouTubeVideo {
+  id: string;
+  title: string;
+  url: string;
+  thumbnail: string;
+}
 
 const LiveStream: React.FC = () => {
+  const [videos, setVideos] = useState<YouTubeVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch("/api/youtube-videos");
+        const data = await response.json();
+        setVideos(data.items || []);
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>Live RDU Airport Stream | Plane Spotting in Raleigh-Durham | FlyBy Spotter</title>
         <meta name="description" content="Watch live plane spotting at Raleigh-Durham International Airport (RDU). See real-time aircraft arrivals and departures with our live stream from RDU." />
-        <meta name="keywords" content="RDU live stream, Raleigh-Durham airport, live plane spotting, RDU arrivals, RDU departures, aviation community" />
-
-        {/* Open Graph tags */}
-        <meta property="og:title" content="Live RDU Airport Stream | Plane Spotting in Raleigh-Durham" />
-        <meta property="og:description" content="Watch live plane spotting at Raleigh-Durham International Airport (RDU). See real-time aircraft arrivals and departures with our live stream from RDU." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.yourwebsite.com/rdu-live-stream" />
-        <meta property="og:image" content="https://www.yourwebsite.com/images/rdu-stream-preview.jpg" />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Live RDU Airport Stream | Plane Spotting in Raleigh-Durham" />
-        <meta name="twitter:description" content="Watch live plane spotting at Raleigh-Durham International Airport (RDU). See real-time aircraft arrivals and departures with our live stream from RDU." />
-        <meta name="twitter:image" content="https://www.yourwebsite.com/images/rdu-stream-preview.jpg" />
-
-        {/* Canonical link */}
-        <link rel="canonical" href="https://www.yourwebsite.com/rdu-live-stream" />
-
-        {/* Structured Data for VideoObject with RDU location */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              "name": "Live RDU Airport Stream | Plane Spotting in Raleigh-Durham",
-              "description": "Watch live plane spotting at Raleigh-Durham International Airport (RDU). See real-time aircraft arrivals and departures with our live stream from RDU.",
-              "thumbnailUrl": "https://www.yourwebsite.com/images/rdu-stream-preview.jpg",
-              "uploadDate": "2024-01-01T08:00:00+08:00",
-              "contentUrl": "https://www.youtube.com/embed/-MSeFt1xec4",
-              "embedUrl": "https://www.youtube.com/embed/-MSeFt1xec4",
-              "interactionCount": "2347",
-              "duration": "PT2H",
-              "isLiveBroadcast": true,
-              "locationCreated": {
-                "@type": "Place",
-                "name": "Raleigh-Durham International Airport",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "2400 John Brantley Blvd",
-                  "addressLocality": "Morrisville",
-                  "addressRegion": "NC",
-                  "postalCode": "27560",
-                  "addressCountry": "US"
-                }
-              }
-            }
-          `}
-        </script>
       </Helmet>
 
       <div className={styles.container}>
@@ -67,6 +45,28 @@ const LiveStream: React.FC = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
+
+
+      {/* Video Gallery Section */}
+      {/* <h2 className={styles.galleryTitle}>Recent Videos</h2> */}
+      {loading ? (
+        <p>Loading videos...</p>
+      ) : (
+        <div className={styles.videoGrid}>
+          {videos.map((video) => (
+            <div key={video.id} className={styles.videoCard}>
+              <a href={video.url} target="_blank" rel="noopener noreferrer">
+                <img
+                  className={styles.thumbnail}
+                  src={video.thumbnail}
+                  alt={video.title}
+                />
+              </a>
+              <h3 className={styles.videoTitle}>{video.title}</h3>
+            </div>
+          ))}
+        </div>
+      )}
       </div>
     </>
   );

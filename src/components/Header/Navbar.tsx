@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleScroll = debounce(() => {
-    setScrolled(window.scrollY > 80);
+    setScrolled(window.scrollY > 60);
   }, 100);
 
   const toggleMenu = () => {

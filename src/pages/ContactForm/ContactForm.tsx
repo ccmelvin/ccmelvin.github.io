@@ -30,7 +30,7 @@ export default function ContactUs() {
   
     // Assuming there's an API endpoint to receive form submissions
     try {
-      const response = await fetch("https://your-api-endpoint.com/send", {
+      const response = await fetch("https://your-api-endpoint.com/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

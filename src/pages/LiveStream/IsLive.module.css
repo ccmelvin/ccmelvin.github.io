@@ -17,7 +17,7 @@
 
 @media (max-width: 600px) {
   .liveIndicator {
-    font-size: 0.9rem; /* Slightly smaller font size on mobile */
-    padding: 3px 8px; /* Adjust padding on smaller screens */
+    font-size: 0.9rem;
+    padding: 3px 8px;
   }
 }

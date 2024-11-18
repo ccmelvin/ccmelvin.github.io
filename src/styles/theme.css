@@ -12,7 +12,7 @@ body.light-theme {
   
   body.dark-theme {
     --background-color: #181818;
-    --text-color: #ffffff;
+    --light-text-color: #ffffff;
     --primary-color: #8ab4f8;
     --secondary-color: #fbbc05;
   }

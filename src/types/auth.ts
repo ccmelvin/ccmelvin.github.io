@@ -1,6 +1,3 @@
-// src/types/auth.ts
-
-// Type for user authentication status
 export interface AuthStatus {
     isAuthenticated: boolean;
     user: User | null;

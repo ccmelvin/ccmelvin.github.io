@@ -1,29 +1,41 @@
-/* src/pages/AboutMe.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 .aboutMe {
-  max-width: 900px;
-  margin: 200px auto;
-  padding: clamp(16px, 4vw, 20px);
-  background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: 30px auto;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-  color: #333;
-  width: 90%;
+  background: var(--background-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  font-weight: 300;
+  font-family: inherit;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  letter-spacing: 1px;
+  color: var(--text-color);
+}
+.aboutMeContent {
+  padding: clamp(16px, 4vw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.5;
 }
 
 .profileImage {
   width: 100%;
   max-width: fit-content;
   height: auto;
-  border-radius: 8px;
-  margin: 0 auto 0px;
   display: block;
+  border-radius: 8px  8px 0 0;
+}
+
+.aboutMe img {
+  color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  
 }
 
 .aboutMe h1 {
   font-size: clamp(1.5rem, 5vw, 2rem);
-  color: #1a73e8;
+  color: #4689e1;
   margin-bottom: 20px;
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
@@ -37,10 +49,9 @@
 }
 
 .aboutMe p {
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.1rem);
   line-height: 1.6;
   margin-bottom: 20px;
-  font-weight: 100;
 }
 
 /* Media Queries for different screen sizes */
@@ -48,11 +59,13 @@
   .aboutMe {
       margin: 10px auto;
       box-shadow: none;
+      font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .aboutMe {
       padding: 12px;
+      font-size: 0.7rem;
   }
 }

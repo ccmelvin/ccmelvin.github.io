@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: clamp(10px, 2vw, 20px);
+  padding: clamp(10px, 2vw, 10px);
   transition: all 0.3s ease;
   background-color: transparent;
   z-index: 1000;
@@ -40,6 +40,7 @@
 
 .scrolled {
   background-color: #041B32;
+  /* background-color: #3596D7; */
 }
 
 .navLinks {
@@ -66,10 +67,9 @@
 }
 
 .active {
-  color: #cbced1; /* Color for active link */
+  color: #cbced1;
 }
 
-/* Change the font color when navbar is scrolled */
 .scrolled .navLinks li a {
   color: rgb(234, 234, 231);
 }

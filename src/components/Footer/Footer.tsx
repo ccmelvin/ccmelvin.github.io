@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
       </div>
-      <p className={styles.copywrite}>
+      <p className={styles.copyright}>
         © 2024 Flyby Spotter.
       </p>
     </div>

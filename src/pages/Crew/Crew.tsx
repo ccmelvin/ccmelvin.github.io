@@ -18,7 +18,7 @@
     return (
       <main className={styles.crewContainer}>
         <Helmet>
-          <title>Meet the Team: Stories Behind the Lens</title>
+          <title className={styles.crewParagraphTitle}>Meet the Team: Stories Behind the Lens</title>
           <meta name="description" content="Discover the stories and experiences of our diverse team of storytellers." />
         </Helmet>
         <header>

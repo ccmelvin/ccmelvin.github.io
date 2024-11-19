@@ -6,6 +6,7 @@ import ContactForm from "../pages/ContactForm/ContactForm";
 import Crew from "../pages/Crew/Crew";
 
 
+
 export interface RouteConfig {
   path: string;
   exact?: boolean;
@@ -44,5 +45,4 @@ export const routes: Routes = {
     path: "/contact",
     component: ContactForm,
   },
-  
 };

@@ -25,37 +25,37 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Form is valid, handle form submission
       console.log('Form submitted with values:', formState.values);
-      // Reset form or redirect user after successful login
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className={styles.formGroup}>
-        <label>Email:</label>
+    <form className={styles.loginForm} onSubmit={handleSubmit}>
+      <div className={styles.inputGroup}>
+        <label className={styles.labelEmail}>Email:</label>
         <input
+          className={styles.inputEmail}
           type="email"
           name="email"
           value={formState.values.email.value}
           onChange={handleChange}
         />
-        {formState.errors.email && <span>{formState.errors.email}</span>}
+        {formState.errors.email && <span className={styles.errorEmail}>{formState.errors.email}</span>}
       </div>
 
-      <div>
-        <label>Password:</label>
+      <div className={styles.inputGroup}>
+        <label className={styles.labelPassword}>Password:</label>
         <input
+          className={styles.inputPassword}
           type="password"
           name="password"
           value={formState.values.password.value}
           onChange={handleChange}
         />
-        {formState.errors.password && <span>{formState.errors.password}</span>}
+        {formState.errors.password && <span className={styles.errorPassword}>{formState.errors.password}</span>}
       </div>
 
-      <button type="submit" disabled={formState.isSubmitting}>
+      <button className={styles.submitLoginButton} type="submit" disabled={formState.isSubmitting}>
         Login
       </button>
     </form>

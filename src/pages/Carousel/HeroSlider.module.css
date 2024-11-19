@@ -37,21 +37,35 @@
     opacity: 1;
     z-index: 2;
   }
-  
-  .overlay {
-    max-width: 520px;
-    position: absolute;
-    bottom: 5%;
-    right: 3%;
-    color: var(--background-color);
-    font-weight: 300;
-    letter-spacing: 1px;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+.overlay {
+  max-width: 520px;
+  position: absolute;
+  color: var(--background-color);
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.overlay.bottom-right {
+  bottom: 5%;
+  right: 3%;
+}
+
+.overlay.bottom-left {
+  bottom: 45%;
+  left: 7%;
+}
+
+.overlay.top-left {
+  top: 45%;
+  left: 10%;
+}
+
+.overlay.top-right {
+  top: 55%;
+  right: 10%;
+}
   .title,
   .author {
     margin-bottom: 10px;

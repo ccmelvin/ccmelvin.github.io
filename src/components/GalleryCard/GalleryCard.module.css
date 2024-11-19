@@ -143,7 +143,7 @@
 }
 
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   .heroBackground {
     padding: 5px;
@@ -195,3 +195,12 @@
   }
 
 }
+/* Responsive Layout */
+/* Mobile */
+/* Extra small devices (phones, 600px and down) */
+
+/* Tablet */
+/* Medium devices (landscape tablets, 768px and up) */
+
+/* Large Desktop */
+/* Extra large devices (large laptops and desktops, 1200px and up) */

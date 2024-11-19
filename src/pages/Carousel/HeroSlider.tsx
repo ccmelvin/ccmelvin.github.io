@@ -14,6 +14,7 @@ const HeroSlider: React.FC = () => {
       alt: "US Navy aircraft performing at the Seymour Johnson AFB air show in May 2023",
       description: "US Navy aircraft performing at the Seymour Johnson AFB air show, May 2023.",
       author: "Colon Melvin",
+      overlayPosition: "bottom-right"
     },
     {
       src: rioDeJaneiroHelicopter,
@@ -22,6 +23,7 @@ const HeroSlider: React.FC = () => {
       alt: "Helicopter view over Rio de Janeiro's Sugarloaf Mountain during sunset",
       description: "A breathtaking view of Rio's Sugarloaf Mountain, taken in April 2024.",
       author: "Colon Melvin",
+      overlayPosition: "top-left"
     },
     {
       src: americanAirlines01,
@@ -30,9 +32,10 @@ const HeroSlider: React.FC = () => {
       alt: "American Airlines Airbus A321 taking off over Balboa Park in San Diego",
       description: "American Airlines Airbus A321 taking off over Balboa Park in San Diego.",
       author: "Colon Melvin",
+      overlayPosition: "bottom-left"
     },
-  ];
 
+  ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -73,7 +76,7 @@ const HeroSlider: React.FC = () => {
                 loading="lazy"
               />
             </picture>
-            <div className={styles.overlay}>
+            <div className={`${styles.overlay} ${styles[slide.overlayPosition]}`}>
               <h2 className={styles.title}>{slide.title}</h2>
               <p className={styles.description}>{slide.description}</p>
               <div className={styles.author}>Photo by: {slide.author}</div>

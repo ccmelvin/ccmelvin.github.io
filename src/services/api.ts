@@ -1,1 +1,0 @@
-/* Purpose: Handle all API calls and data-fetching logic. This helps keep your components clean and focused on UI.*/

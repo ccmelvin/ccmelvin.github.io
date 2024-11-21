@@ -11,7 +11,7 @@ console.log('API URL:', apiUrl);
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ccmelvin/',
+  base: '/flybyspotter-website/',
   server: {
     port: 3000,
     proxy: {

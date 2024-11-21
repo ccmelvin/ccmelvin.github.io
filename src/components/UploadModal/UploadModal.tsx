@@ -9,7 +9,7 @@ interface UploadModalProps {
 const UploadModal: React.FC<UploadModalProps> = ({ onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState<File | null>(null);
+  // const [image, setImage] = useState<File | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const UploadModal: React.FC<UploadModalProps> = ({ onClose }) => {
         <form onSubmit={handleSubmit}>
           <input
             type="file"
-            onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}
+            // onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}
             accept="image/*"
           />
           <input

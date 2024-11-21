@@ -1,0 +1,43 @@
+.loginForm {
+  max-width: 400px;
+  margin: auto;
+}
+
+.inputGroup {
+  margin-bottom: 15px;
+}
+
+.labelEmail,
+.labelPassword {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inputEmail,
+.inputPassword {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.errorEmail,
+.errorPassword {
+  color: red;
+  font-size: 0.9em;
+}
+
+.submitLoginButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #015887;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitLoginButton:disabled {
+  background-color: #aaa;
+}

@@ -11,7 +11,7 @@ console.log('API URL:', apiUrl);
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ccmelvin.github.io/',
+  base: '/',
   server: {
     port: 3000,
     proxy: {
@@ -22,4 +22,6 @@ export default defineConfig({
       }
     }
   }
+
+  
 });

@@ -59,7 +59,6 @@
   cursor: pointer;
   font-size: 16px;
 }
-
 .likeButton {
   display: flex;
   align-items: center;
@@ -67,13 +66,19 @@
   font-size: 18px;
   margin-top: 20px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
+
+
 
 .heartIcon {
   margin-right: 10px;
   color: #ff4081;
 }
 
+.heartIcon.active {
+  fill: #ff4081;
+}
 .sliderContainer {
   width: calc(30% - 30px);
   margin: 40px;

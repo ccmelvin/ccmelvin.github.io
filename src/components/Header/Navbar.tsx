@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <NavLink to="/about" onClick={closeMenu}>
-            About Me
+            About
           </NavLink>
         </li>
         <li>

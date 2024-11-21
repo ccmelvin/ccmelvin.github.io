@@ -9,14 +9,22 @@ interface GalleryCardProps {
   items: GalleryItem[];
   onLike: (id: string) => void;
 }
-
 const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(
     items[0] || null
   );
 
+  const [isLiked, setIsLiked] = useState(false);
+
   const handleItemClick = (item: GalleryItem) => {
     setSelectedItem(item);
+  };
+
+  const handleLikeClick = () => {
+    if (!isLiked && selectedItem) {
+      onLike(selectedItem.id);
+      setIsLiked(true);
+    }
   };
 
   const settings = {
@@ -66,12 +74,16 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ items, onLike }) => {
         {/* Like Button */}
         <div
           className={styles.likeButton}
-          onClick={() => onLike(selectedItem.id)}
+          onClick={handleLikeClick}
           role="button"
-          aria-pressed="false"
+          aria-pressed={isLiked}
           tabIndex={0}
         >
-          <Heart className={styles.heartIcon} aria-hidden="true" />
+          <Heart 
+            className={`${styles.heartIcon} ${isLiked ? styles.active : ''}`} 
+            aria-hidden="true"
+            fill={isLiked ? "#ff4081" : "none"}
+          />
           <span>{selectedItem.likes}</span>
         </div>
       </div>

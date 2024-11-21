@@ -28,29 +28,29 @@ export default function ContactUs() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    // Assuming there's an API endpoint to receive form submissions
     try {
-      const response = await fetch("https://your-api-endpoint.com/submit-form", {
+      const response = await fetch("https://formspree.io/f/xnnqzvzo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         setIsSubmitted(true);
-        
-        // Optional: Redirect to a thank-you page or some other action
-        window.location.href = "/thank-you";
-      } else {
-        console.error("Submission failed");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       }
     } catch (error) {
-      console.error("An error occurred during form submission", error);
+      console.error("Form submission error:", error);
     }
-  };
-  
+  };  
 
   return (
     <>

@@ -1,0 +1,231 @@
+.crewContainer {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  font-family: inherit;
+  text-align: start;
+}
+
+.crewHeading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: clamp(5rem, 3vw, 7rem);
+  font-weight: 500;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.crewSection {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+.crewSection:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.crewImageWrapper {
+  width: 60%;
+  max-width: 500px;
+}
+
+.crewTextWrapper {
+  width: 90%;
+  padding: 0 1rem;
+}
+
+.crewImage {
+  width: 500px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.crewSubheading {
+  margin: 0;
+  color: #333;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-left: 10px;
+  padding-bottom: 0.3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Dancing Script", cursive;
+}
+
+.crewParagraph {
+  max-width: 60ch;
+  margin: 0.1rem 0;
+  padding: 0.3rem 0;
+  font-size: clamp(1.2rem, 1.5vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.crewParagraphTitle {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: #333;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-bottom: 0.3em;
+  text-align: left;
+}
+
+.thumbnailWrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+  border: 2px solid #333;
+}
+
+
+/* Other styles remain the same until media queries */
+
+/* Tablet and smaller devices */
+@media (max-width: 768px) {
+  .crewContainer {
+    margin: 3rem auto;
+    padding: 1rem;
+  }
+
+  .crewSection,
+  .crewSection:nth-child(odd) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crewImageWrapper,
+  .crewTextWrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .crewImage {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .crewHeading {
+    margin: clamp(3rem, 2vw, 5rem);
+  }
+
+  .crewParagraph {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .crewContainer {
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .crewHeading {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin: clamp(2rem, 2vw, 3rem);
+  }
+
+  .crewSubheading {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin-left: 5px;
+  }
+
+  .crewParagraph {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .crewParagraphTitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+  }
+
+  .crewImage {
+    max-width: 100%;
+    width: auto;
+  }
+
+  .thumbnailWrapper {
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .thumbnail {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Medium-sized devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .crewContainer {
+    max-width: 90%;
+  }
+
+  .crewImageWrapper {
+    width: 50%;
+  }
+
+  .crewImage {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 1440px) {
+  .crewContainer {
+    max-width: 1400px;
+  }
+
+  .crewImage {
+    max-width: 600px;
+  }
+
+  .crewParagraph {
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .crewContainer {
+    background-color: var(--background-color-dark, #1a1a1a);
+  }
+  
+  .crewHeading,
+  .crewSubheading {
+    color: var(--text-color-dark, #f0f0f0);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .crewParagraph {
+    color: var(--text-color-secondary-dark, #d0d0d0);
+  }
+
+  .thumbnail:hover {
+    border-color: var(--text-color-dark, #f0f0f0);
+  }
+}

@@ -1,0 +1,19 @@
+/* src/styles/theme.css */
+
+body.light-theme {
+    --background-color: #e9e6e6;
+    --text-color: #959292;
+    --font-color:#141515;
+    --primary-color: #015887;
+    --secondary-color: #041B32;
+    --accent-color: #EAEAEA;
+    --yellow-color: #fbbc05;
+  }
+  
+  body.dark-theme {
+    --background-color: #181818;
+    --light-text-color: #ffffff;
+    --primary-color: #8ab4f8;
+    --secondary-color: #fbbc05;
+  }
+ 

@@ -1,0 +1,136 @@
+.footer {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  color: #333333;
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 0.3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Dancing Script", cursive;
+  text-align: left;
+}
+
+.connect {
+  flex: 1;
+}
+
+.contactInfo {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.contactInfo p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.contactInfo p:hover .icon {
+  transform: rotate(10deg);
+  font-size: 1.5rem;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.email a {
+  color:#666;
+  text-align: center;
+}
+
+.socialLinks li:hover .icon{
+  color: var(--secondary-text-color);
+  transform: rotate(10deg) scale(1.1);
+  font-size: 1.5rem;
+}
+
+.socialLinks {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+}
+
+.socialLinks li {
+  transition: transform 0.3s ease;
+  margin-right: 15px;
+}
+
+.socialLinks a {
+  color: var(--secondary-text-color);
+  font-size: 1.5rem;
+}
+
+.socialLinks a:hover {
+  color: #1a73e8;
+}
+
+.menu, .categories {
+  flex: 1;
+}
+
+.menu h3, .categories h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  
+}
+
+.menu ul, .categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu ul li, .categories ul li {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.menu ul li a, .categories ul li a {
+  color: #666;
+  text-decoration: none;
+}
+
+.menu ul li a:hover, .categories ul li a:hover {
+  color: #1a73e8;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  margin-right: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.copyright {
+  border-top: 1px solid #dad8d8;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #999;
+}
